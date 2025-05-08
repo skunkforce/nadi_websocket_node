@@ -1,0 +1,18 @@
+{
+    "name": "nadi-websocket",
+    "version": "1.0",
+    "dependencies": [
+        "pkgconf",
+        "nlohmann-json",
+        "scope-guard",
+        "fmt",
+        "boost-crc",
+        "boost-asio",
+        "boost-system",
+        "boost-thread",
+        "boost-filesystem",
+        "boost-regex",
+        "openssl",
+        "crow"
+    ]
+}

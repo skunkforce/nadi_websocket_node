@@ -15,12 +15,6 @@ FetchContent_Populate(
   SOURCE_DIR     "${CMAKE_SOURCE_DIR}/vcpkg"
 )
 
-FetchContent_Populate(
-  CLI11
-  GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
-  GIT_TAG v2.4.0
-)
-
 
 # get latest git tag
 execute_process(
@@ -69,9 +63,6 @@ if(NOT SCOPE_GUARD_INCLUDE_DIRS)
     message(FATAL_ERROR "scope-guard header not found. Ensure scope-guard is installed via vcpkg.")
 endif()
 
-
-add_subdirectory(${cli11_SOURCE_DIR} ${cli11_BINARY_DIR})
-
 add_library(${PROJECT_NAME} SHARED
                src/main.cpp)
 
@@ -105,10 +96,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 find_package(Crow CONFIG REQUIRED)
 target_link_libraries(${PROJECT_NAME} PRIVATE Crow::Crow)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE CLI11::CLI11)
-
 find_package(nlohmann_json CONFIG REQUIRED)
-
 target_link_libraries(${PROJECT_NAME} PRIVATE nlohmann_json::nlohmann_json)
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)

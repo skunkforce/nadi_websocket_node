@@ -1,6 +1,5 @@
 #include <format>
 #include <string>
-#include "CLI/CLI.hpp"
 #include <nlohmann/json.hpp>
 #include <print>
 #include <mutex>
